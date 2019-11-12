@@ -21,7 +21,7 @@
     body_format: json
     status_code: 204
   # no_log: yes
-  when: r_check_secret.json.database is not defined
+  when: r_check_secret.json.data.database is not defined
    
     
 - name: Configure MSSQL secret engine
