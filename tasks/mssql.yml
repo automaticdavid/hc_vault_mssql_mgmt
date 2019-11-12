@@ -38,7 +38,7 @@
 
 - name: Create a read/write role
   uri:
-    url: "{{ hc_vault_server }}/v1/database/roles/readonly"
+    url: "{{ hc_vault_server }}/v1/database/roles/readwrite"
     validate_certs: no
     method: POST
     headers: 
