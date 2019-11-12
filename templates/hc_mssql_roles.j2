@@ -1,6 +1,6 @@
 {
     "db_name": "{{mssql_db}}",
-    "creation_statements": "{% raw %}CREATE LOGIN \"{{name}}\" WITH PASSWORD = '{{password}}'; CREATE USER \"{{name}}\" FOR LOGIN \"{{name}}\"; GRANT ALL TO \"{{name}}\";{% endraw %}",
+    "creation_statements": "{% raw %}CREATE LOGIN \"{{name}}\" WITH PASSWORD = '{{password}}'; CREATE USER \"{{name}}\" FOR LOGIN \"{{name}}\"; ALTER ROLE db_owner ADD MEMBER \"{{name}}\";{% endraw %}",
     "default_ttl": "1h",
     "max_ttl": "24h"
 }
