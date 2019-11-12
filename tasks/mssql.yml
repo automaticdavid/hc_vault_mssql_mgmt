@@ -9,6 +9,8 @@
       X-Vault-Token: "{{ hc_vault_token }}"
     body: '{"type": "database" }'
     body_format: json
+    status_code: 204
+  no_log: yes
     
 - name: Configure MSSQL secret engine
   uri:
@@ -19,6 +21,8 @@
       X-Vault-Token: "{{ hc_vault_token }}"
     body: "{{ lookup('template', 'templates/hc_mssql_settings.j2') }}"
     body_format: json
+  no_log: yes
+
 
 - name: Create a read/write role
   uri:
@@ -30,5 +34,6 @@
     body: "{{ lookup('template', 'templates/hc_mssql_roles.j2') }}"
     body_format: json
     status_code: 200, 204
+  no_log: yes
 
 
