@@ -26,7 +26,7 @@
     
 - name: Configure MSSQL secret engine
   uri:
-    url: "{{ hc_vault_server }}/v1/database/config/{{ ansible_hostname }}_{{ mssql_db }}"
+    url: "{{ hc_vault_server }}/v1/database/config/{{ mssql_db }}"
     validate_certs: no
     method: POST
     headers: 
