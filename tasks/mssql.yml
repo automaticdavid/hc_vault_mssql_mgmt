@@ -2,7 +2,7 @@
 
 - name: Check if Secret exist
   uri: 
-    url: "{{ hc_vault_server }}/v1/sys/mounts/database"
+    url: "{{ hc_vault_server }}/v1/sys/mounts"
     headers: 
       X-Vault-Token: "{{ hc_vault_token }}"
   register: r_check_secret
