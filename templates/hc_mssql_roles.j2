@@ -1,0 +1,6 @@
+{
+    "db_name": "{{ansible_hostname}}_{{mssql_db}}",
+    "creation_statements": "{% raw %}CREATE LOGIN \"{{name}}\" WITH PASSWORD = '{{password}}'; CREATE USER \"{{name}}\" FOR LOGIN \"{{name}}\"; GRANT SELECT ON SCHEMA::dbo TO \"{{name}}\";{% endraw %}",
+    "default_ttl": "1h",
+    "max_ttl": "24h"
+}

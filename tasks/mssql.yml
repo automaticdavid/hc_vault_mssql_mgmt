@@ -1,0 +1,24 @@
+---
+
+- name: Configure MSSQL secret engine
+  uri:
+    url: "{{ hc_vault_server }}/v1/database/config/{{ ansible_hostname }}_{{ mssql_db }}"
+    validate_certs: no
+    method: POST
+    headers: 
+      X-Vault-Token: "{{ hc_vault_token }}"
+    body: "{{ lookup('template', 'templates/hc_mssql_settings.j2') }}"
+    body_format: json
+
+- name: Create a read/write role
+  uri:
+    url: "{{ hc_vault_server }}/v1/database/roles/readonly"
+    validate_certs: no
+    method: POST
+    headers: 
+      X-Vault-Token: "{{ hc_vault_token }}"
+    body: "{{ lookup('template', 'templates/hc_mssql_roles.j2') }}"
+    body_format: json
+    status_code: 200, 204
+
+
