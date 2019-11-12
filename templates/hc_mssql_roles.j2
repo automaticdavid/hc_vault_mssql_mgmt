@@ -1,6 +1,6 @@
 {
     "db_name": "{{mssql_db}}",     
-    "creation_statements": "{% raw %}USE [master]; CREATE LOGIN [{{name}}] WITH PASSWORD = '{{password}}'; USE [monolith] ; CREATE USER [{{name}}] FOR LOGIN [{{name}}]; ALTER ROLE [db_owner] ADD MEMBER [{{name}}];"{% endraw %}",
+    "creation_statements": "{% raw %}USE [master]; CREATE LOGIN [\"{{name}}\"] WITH PASSWORD = '{{password}}'; USE [monolith] ; CREATE USER [\"{{name}}\"] FOR LOGIN [\"{{name}}\"]; ALTER ROLE [db_owner] ADD MEMBER [\"{{name}}\"];"{% endraw %}",
     "default_ttl": "1h",
     "max_ttl": "24h"
 }
