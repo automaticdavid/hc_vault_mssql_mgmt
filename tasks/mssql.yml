@@ -1,5 +1,15 @@
 ---
 
+- name: Create MSSQL secret engine
+  uri:
+    url: /sys/mounts/database
+    validate_certs: no
+    method: POST
+    headers: 
+      X-Vault-Token: "{{ hc_vault_token }}"
+    body: '{"type": "database" }'
+    body_format: json
+    
 - name: Configure MSSQL secret engine
   uri:
     url: "{{ hc_vault_server }}/v1/database/config/{{ ansible_hostname }}_{{ mssql_db }}"
