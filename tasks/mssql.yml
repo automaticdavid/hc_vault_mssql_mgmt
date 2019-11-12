@@ -1,5 +1,15 @@
 ---
 
+- name: Check if Secret exist
+  uri: 
+    url: "{{ hc_vault_server }}/v1/sys/mounts/database"
+    headers: 
+      X-Vault-Token: "{{ hc_vault_token }}"
+  register: r_check_secret
+
+- debug: 
+    var: r_check_secret
+
 - name: Create MSSQL secret engine
   uri:
     url: "{{ hc_vault_server }}/v1/sys/mounts/database"
@@ -11,6 +21,7 @@
     body_format: json
     status_code: 204
   # no_log: yes
+   
     
 - name: Configure MSSQL secret engine
   uri:
